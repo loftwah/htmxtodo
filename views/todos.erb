@@ -1,0 +1,16 @@
+<!-- views/todos.erb -->
+<ul id="todos">
+  <% todos.each do |todo| %>
+    <li>
+      <% if todo[:completed] %>
+        [Completed] <%= todo[:task] %>
+      <% else %>
+        <%= todo[:task] %>
+      <% end %>
+      <!-- Toggle completion link -->
+      <a href="#" hx-post="/todos/<%= todo[:id] %>/toggle" hx-target="#todos" hx-swap="outerHTML">Toggle Complete</a>
+      <!-- Delete link -->
+      <a href="#" hx-post="/todos/<%= todo[:id] %>/delete" hx-target="#todos" hx-swap="outerHTML">Delete</a>
+    </li>
+  <% end %>
+</ul>

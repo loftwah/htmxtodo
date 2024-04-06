@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <script src="https://unpkg.com/htmx.org"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+  <h1 class="text-4xl font-bold text-center mb-4">htmx Owns Todo Lists</h1>
+  <img src="/images/htmx.jpg" alt="HTMX" class="w-full max-w-xs md:max-w-sm lg:max-w-md mb-4">
+  <div class="w-full max-w-md px-4 py-2 bg-white rounded-lg shadow-lg">
+    <form hx-post="/todos" hx-target="#todos" hx-swap="outerHTML" class="flex flex-col items-center">
+      <input type="text" name="task" placeholder="Add a new task" required class="w-full p-2 my-2 border rounded">
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
+        Add
+      </button>
+    </form>
+    <ul id="todos" class="w-full list-none p-0">
+      <!-- Todos will be injected here -->
+    </ul>
+  </div>
+</body>
+</html>
